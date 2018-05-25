@@ -8,7 +8,12 @@ exports.nunjucks = {
     package: 'egg-view-nunjucks'
 }
 
-exports.mysql = {
+// exports.mysql = {
+//     enabled: true,
+//     package: 'egg-mysql'
+// }
+
+exports.sequelize = {
     enabled: true,
-    package: 'egg-mysql'
+    package: "egg-sequelize"
 }

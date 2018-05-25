@@ -9,7 +9,7 @@ class HomeController extends Controller {
 	}
 	async add() {
 		const data = this.ctx.params.data;
-		const result = yield this.service.mysql.add(data);
+		const result = this.service.mysql.add(data);
 		this.ctx.body = 'success';
 	}
 }

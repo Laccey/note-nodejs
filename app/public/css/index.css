@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #f1f1f1;
+}
+h1{
+    font-size: 40px;
+    color: #555;
+    margin: 30px 40px;
+    text-align: center;
+    font-weight: normal;
+}
+form{
+    margin-left: 300px;
+}
+textarea{
+    width: 800px;
+    height: 500px;
+    padding: 30px;
+    vertical-align: bottom;
+}
+button{
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: #1976d2;
+    color: #fff;
+}
