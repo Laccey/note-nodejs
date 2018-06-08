@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="/public/css/index.css" />
   </head>
   <body>
-    <h1>My Note</h1>
-    <form action="/add" method="POST">
-        <textarea id="text" placeholder="写点什么呢？" name="text" value="{{ctx.csrf}}"></textarea>
+    <h1>Edit My Note</h1>
+    <form action="/update" method="POST">
+        <textarea id="text" placeholder="" name="text" value="{{ctx.csrf}}"> {{text}}</textarea>
         <button id="save">保存</button>
     </form>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-    <script src="/public/js/index.js"></script>
+    <script src="/public/js/edit.js"></script>
   </body>
 </html>

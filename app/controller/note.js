@@ -6,21 +6,54 @@ class NoteController extends Controller {
     }
 
     async add() {
-        const data = this.ctx.params.data;
-        const result = await this.service.mysql.add(data);
-        this.ctx.body = `success ok`;
+        const noteId = this.ctx.session.noteId;
+        let ctx = this.ctx;
+        let body = ctx.request.body;
+        let data = body.text;
+        const result = await this.service.mysql.add(noteId, data);
+        if (result) {
+            return ctx.body = {
+                success: 1,
+                msg: '添加成功！'
+            }
+        } else {
+            return ctx.body = {
+                success: 0,
+                msg: '添加失败！'
+            }
+        }
+    }
+
+    async update() {
+        const noteId = this.ctx.session.noteId;
+        console.log('---------noteId1---------------');
+        console.log(noteId);
+        let ctx = this.ctx;
+        let body = ctx.request.body;
+        let data = body.text;
+        const result = await this.service.mysql.update(noteId, data);
+        if (result) {
+            return ctx.body = {
+                success: 1,
+                msg: '更新成功！'
+            }
+        } else {
+            return ctx.body = {
+                success: 0,
+                msg: '更新失败！'
+            }
+        }
     }
 
     async getNode() {
-        const data = this.ctx.params.data;
-        const result = await this.service.mysql.select(data);
-        // console.log(result);
-        // this.ctx.body = `${result}`;
-        if(result){
-            this.ctx.body = `${result}`;
-        }else{
+        const noteId = this.ctx.params.noteId;
+        this.ctx.session.noteId = noteId;
+        const result = await this.service.mysql.select(noteId);
+        if (result) {
+            // this.ctx.body = `${result.text}`;
+            await this.ctx.render('edit.tpl',{text:result.text});
+        } else {
             await this.ctx.render('index.tpl');
-            // this.ctx.body = `dd`;
         }
     }
 

@@ -6,17 +6,6 @@ $("#save").click(function (e) {
     let config = form.serialize();
     console.log(config);
     let actionUrl = form.attr('action');
-    // var data = $('#text').val();
-    // const noteId = window.location.pathname.slice(1)
-    // $.ajax({
-    //     type: 'get',
-    //     url:'/select/' + id,
-    //     success: function(data){
-    //         if(data == 'success'){
-    //             console.log('存在');
-    //         }
-    //     }
-    // })
     $.ajax({
         type: 'POST',
         url: actionUrl,
