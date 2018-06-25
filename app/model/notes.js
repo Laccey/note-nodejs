@@ -1,5 +1,5 @@
 module.exports = app => {
-	const { STRING, INTEGER, DATE } = app.Sequelize;
+	const { STRING, DATE } = app.Sequelize;
 
 	const Notes = app.model.define("notes", {
 		noteId: STRING,

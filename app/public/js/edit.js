@@ -12,8 +12,8 @@ $("#save").click(function (e) {
         data: form.serialize(),
         dataType: 'json',
         success: function (data) {
-            if (data == 'success') {
-                console.log('成功');
+            if (data.success == 1) {
+                console.log(data.msg);
             }
         }
     })

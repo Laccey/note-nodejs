@@ -7,7 +7,7 @@
     <h1>My Note</h1>
     <form action="/add" method="POST">
         <textarea id="text" placeholder="写点什么呢？" name="text" value="{{ctx.csrf}}"></textarea>
-        <button id="save">保存</button>
+        <button id="add">新建</button>
     </form>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
     <script src="/public/js/index.js"></script>

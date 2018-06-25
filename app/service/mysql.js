@@ -9,6 +9,7 @@ module.exports = app => {
             } else {
                 return;
             }
+            // return result;
         }
 
         async select() {
@@ -23,33 +24,27 @@ module.exports = app => {
             } else {
                 return;
             }
+            // return result;
         }
 
         async update(noteId, data) {
             console.log('---------noteId---------------');
             console.log(noteId);
-            const note = await this.ctx.model.Notes.findAll({
-                where: {
-                    noteId: noteId
-                }
-            });
+            const result = await this.ctx.model.Notes.update({
+                text: data
+            }, {
+                    where: {
+                        noteId: noteId
+                    },
+                })
             console.log('---------result---------------');
-            // console.log(result);
-            // if (!note) {
-            //     this.ctx.throw(404, 'note not found');
-            // }
-            // return note.update(data);
-            if (note.length > 0) {
-                return note.update(data);
+            console.log(result);
+            if (result.length > 0) {
+                return result;
             } else {
                 return;
             }
-            // console.log(result);
-            // if (result.length > 0) {
-            //     return result[0].dataValues;
-            // } else {
-            //     return;
-            // }
+            // return result;
         }
     }
 };

@@ -8,6 +8,5 @@ module.exports = app => {
 	router.get('/', controller.note.show);
 	router.post('/add', controller.note.add);
 	router.post('/update', controller.note.update);
-	// router.get('/select/:id', controller.note.getNode);
 	router.get('/:noteId', controller.note.getNode);
 };

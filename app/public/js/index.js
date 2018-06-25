@@ -1,4 +1,4 @@
-$("#save").click(function (e) {
+$("#add").click(function (e) {
     // 阻止表单提交的默认事件
     e.preventDefault();
     let form = $(this).closest('form');
@@ -23,8 +23,8 @@ $("#save").click(function (e) {
         data: form.serialize(),
         dataType: 'json',
         success: function (data) {
-            if (data == 'success') {
-                console.log('成功');
+            if (data.success == 1) {
+                console.log(data.msg);
             }
         }
     })
